@@ -4,11 +4,8 @@
 
 def update_topics(mongo_collection, name, topics):
     """ update topics """
-    update = mongo_collection.update(
+    update = mongo_collection.update_many(
         {"name": name},
-        {"$set": {"topics": topics}},
-        {
-            "multi": True
-            }
+        {"$set": {"topics": topics}}
     )
     return update
