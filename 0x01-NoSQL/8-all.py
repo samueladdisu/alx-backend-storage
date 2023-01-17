@@ -4,7 +4,8 @@
 
 def list_all(mongo_collection):
     list = mongo_collection.find()
-    if list:
-        return list
-    else:
+    
+    if list.count() == 0:
         return []
+    
+    return list
